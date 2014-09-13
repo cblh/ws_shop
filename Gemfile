@@ -4,6 +4,7 @@ source 'https://ruby.taobao.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass'
+gem 'haml'
 
 group :development, :test do
   gem 'rspec-rails'
