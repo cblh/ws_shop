@@ -1,5 +1,20 @@
 class Product < ActiveRecord::Base
-	default_scope { order("title") }
+  default_scope { order("title") }
+
+  has_many :line_items
+
+  before_destroy :ensure_not_referenced_by_any_line_item
+
+  private
+    def ensure_not_referenced_by_any_line_item
+      if line_items.empty?
+        return true
+      else
+        error.add(:base, 'Line Items present')
+        return false
+      end
+    end
+
 
 	VALIE_IMAGE_URL_REGEX = %r{\.(gif|jpg|png)\Z}i
 
@@ -9,5 +24,7 @@ class Product < ActiveRecord::Base
 	validates :image_url, format: {
 		with: VALIE_IMAGE_URL_REGEX,
 		message: 'must be a URL for GIF, JPG or PNG image.'
+
 	}
+
 end
