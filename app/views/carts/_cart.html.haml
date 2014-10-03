@@ -1,0 +1,9 @@
+.cart_title 购物车
+%table
+  = render(cart.line_items)
+
+  %tr.total_line
+    %td{colspan: 2} 总价
+    %td.total_cell=number_to_currency cart.total_price
+
+=button_to '清空购物车', cart, method: "delete", confirm: "确认清空购物车"

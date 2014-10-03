@@ -1,0 +1,24 @@
+%html
+  %head
+    %title WsShop
+    = stylesheet_link_tag      'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag   'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body#store
+    #banner
+      = image_tag("logo.png")
+      = @page_title || "Pragmatic Bookshelf"
+    #columns
+      #side
+        #cart
+          = render(@cart) if @cart != nil
+        %a{:href => "/"} Home
+        %br
+        %a{:href => "/faq"} Questions
+        %br
+        %a{:href => "/news"} News
+        %br
+        %a{:href => "/contact"} Contact
+    #main
+      = yield
