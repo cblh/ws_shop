@@ -11,8 +11,11 @@
       = @page_title || "Pragmatic Bookshelf"
     #columns
       #side
-        #cart
-          = render(@cart) if @cart != nil
+        - if @cart.line_items.empty?
+          #cart.hidden
+        - else
+          #cart
+            = render(@cart) if @cart != nil
         %a{:href => "/"} Home
         %br
         %a{:href => "/faq"} Questions
