@@ -5,10 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
     def current_cart
-      Cart.find(session[:cart_id])
-    rescue ActiveRecord::RecordNotFound
+      Cart.find_by(id: session[:cart_id])
+    rescue Mongoid::Errors::DocumentNotFound
       cart = Cart.create
-      session[:cart_id] = cart.id
+      session[:cart_id] = cart.id.to_s
       cart
     end
 end

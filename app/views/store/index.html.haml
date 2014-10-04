@@ -6,14 +6,13 @@
 %h1 Your Pragmatic Catalog
 
 - @products.each do |product|
-  .entry
-    = image_tag(product.image_url)
-    %h3
-      = product.title
-    .price_line
-      %span.price
-        = number_to_currency(product.price)
-      = button_to 'Add to Cart', line_items_path(product_id: product)
-
-
-
+  .row
+    .col-xs-9.col-md-6
+      %p= product.title
+      %a{:href => product_path(product), class: "thumbnail"}
+        -# TODO修改成image_url
+        -# = image_tag(product.image_url)
+        = image_tag("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzQiIGhlaWdodD0iMTgwIj48cmVjdCB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjY3IiB5PSI5MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjEzNHgxODA8L3RleHQ+PC9zdmc+", class: "img-responsive")
+    .col-xs-6.col-md-3
+      %span.price= number_to_currency(product.price)
+      = button_to '加入购物车', line_items_path(product_id: product), remote: true, class: 'btn btn-primary'

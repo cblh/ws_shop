@@ -1,5 +1,13 @@
-class Product < ActiveRecord::Base
-  default_scope { order("title") }
+class Product
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  field :title, type: String
+  field :description, type: String
+  field :image_url, type: String
+  field :price, type: BigDecimal
+  
+  #TODO 使用mongoid的scope
+  # default_scope { order("title") }
 
   has_many :line_items
 

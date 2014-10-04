@@ -1,4 +1,7 @@
-class LineItem < ActiveRecord::Base
+class LineItem
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  field :quantity, type: Integer, default: 1
   belongs_to :product
   belongs_to :cart
 
