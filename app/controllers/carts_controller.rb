@@ -12,10 +12,10 @@ class CartsController < ApplicationController
   def show
     begin
       @cart = Cart.find params[:id]
-    rescue Mongoid::Errors::DocumentNotFound
-      logger.error "Attempt to access invalid cart #{params[:id]}"
-      redirect_to store_url, notice: "不可用的购物车"
-    else
+    # rescue Mongoid::Errors::DocumentNotFound
+      # logger.error "Attempt to access invalid cart #{params[:id]}"
+      # redirect_to store_url, notice: "不可用的购物车"
+    # else
       respond_to do |format|
         format.html # show.html.haml
         format.json { render json: @cart }
@@ -72,7 +72,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to store_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -80,12 +80,12 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      begin
+      # begin
         @cart = Cart.find(params[:id])
-      rescue Mongoid::Errors::DocumentNotFound
-        logger.error "Attempt to access invalid cart #{params[:id]}"
-        redirect_to store_path, notice: 'Invalid cart'
-      end
+      # rescue Mongoid::Errors::DocumentNotFound
+      #   logger.error "Attempt to access invalid cart #{params[:id]}"
+      #   redirect_to store_path, notice: 'Invalid cart'
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
