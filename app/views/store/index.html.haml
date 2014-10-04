@@ -6,9 +6,11 @@
 %h1 Your Pragmatic Catalog
 
 - @products.each do |product|
-  .entry
-    = image_tag(product.image_url)
-    %h3= product.title
-    .price_line
+  .row
+    .col-xs-9.col-md-6
+      %a{:href => product_path(product)}
+        = image_tag(product.image_url)
+      %p= product.title
+    .col-xs-6.col-md-3
       %span.price= number_to_currency(product.price)
-      = button_to 'Add to Cart', line_items_path(product_id: product), remote: true
+      = button_to '加入购物车', line_items_path(product_id: product), remote: true, class: 'btn btn-primary'
