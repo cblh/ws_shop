@@ -12,7 +12,7 @@ class CartsController < ApplicationController
   def show
     begin
       @cart = Cart.find params[:id]
-    rescue ActiveRecord::RecordNotFound
+    rescue Mongoid::Errors::DocumentNotFound
       logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to store_url, notice: "不可用的购物车"
     else
@@ -82,7 +82,7 @@ class CartsController < ApplicationController
     def set_cart
       begin
         @cart = Cart.find(params[:id])
-      rescue ActiveRecord::RecordNotFound
+      rescue Mongoid::Errors::DocumentNotFound
         logger.error "Attempt to access invalid cart #{params[:id]}"
         redirect_to store_path, notice: 'Invalid cart'
       end

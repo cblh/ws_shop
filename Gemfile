@@ -17,7 +17,9 @@ group :test do
   gem 'factory_girl_rails'
 end
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'mongoid', '~>4', github: 'mongoid/mongoid'
+gem 'bson_ext'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
