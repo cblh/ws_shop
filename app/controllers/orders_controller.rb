@@ -14,6 +14,10 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    # if current_cart.total_items < 1
+    #   redirect_to store_url, notice: '你的购物车为空'
+    #   return
+    # end
     @order = Order.new
   end
 

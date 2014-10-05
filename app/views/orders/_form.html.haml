@@ -8,15 +8,15 @@
 
   .form-group
     = f.label :name
-    = f.text_field :name, class: 'form-control'
+    = f.text_field :name, class: 'form-control', size: 40
   .form-group
     = f.label :address
-    = f.text_area :address, class: 'form-control'
+    = f.text_area :address, class: 'form-control', row: 3, cols: 40
   .form-group
     = f.label :email
-    = f.text_field :email, class: 'form-control'
+    = f.text_field :email, class: 'form-control', size: 40
   .form-group
     = f.label :pay_type
-    = f.text_field :pay_type, class: 'form-control'
+    = f.select :pay_type, Order::PAYMENT_TYPES, { prompt: '选择一种支付方式' }, { class: 'form-control' }
   .actions
     = f.submit 'Save', class: 'btn btn-primary btn-block'
