@@ -9,7 +9,7 @@ class Order
   has_many :line_items, dependent: :destroy
 
   # TODO 使用中文赋值
-  PAYMENT_TYPES = [ 'check', 'Credit card', 'purchase order' ]
+  PAYMENT_TYPES = [ 'Check', 'Credit card', 'purchase order' ]
 
   validates :name, :address, :email, :pay_type, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
