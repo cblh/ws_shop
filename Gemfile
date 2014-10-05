@@ -5,6 +5,7 @@ source 'https://ruby.taobao.org'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'rspec-rails'
