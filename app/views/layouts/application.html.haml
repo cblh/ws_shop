@@ -6,11 +6,13 @@
     = csrf_meta_tags
 
   %body#store
-    #banner
-      = image_tag("logo.png")
-      = @page_title || "Pragmatic Bookshelf"
-    #columns
-      #side
+    .row
+      .col-xs-12
+        #banner
+          = image_tag("logo.jpg", class: 'img-responsive')
+          = @page_title || "Pragmatic Bookshelf"
+    .row
+      .col-xs-2
         - if @cart == nil
           #cart.hidden
         - else
@@ -23,5 +25,5 @@
         %a{:href => "/news"} News
         %br
         %a{:href => "/contact"} Contact
-    #main
-      = yield
+      .col-xs-10
+        = yield

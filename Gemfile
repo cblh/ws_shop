@@ -4,7 +4,9 @@ source 'https://ruby.taobao.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass'
-gem 'haml'
+gem 'haml-rails'
+gem 'will_paginate_mongoid'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
   gem 'rspec-rails'
