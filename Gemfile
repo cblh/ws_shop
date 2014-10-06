@@ -10,6 +10,8 @@ gem 'bootstrap-will_paginate'
 gem 'devise'
 
 group :development, :test do
+  # A toy SMTP server will be running on port 1025 catching emails and displaing them on HTTP port 1080.
+  gem 'mailcatcher'
   gem 'rspec-rails'
 end
 
