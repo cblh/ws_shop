@@ -7,6 +7,7 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'will_paginate_mongoid'
 gem 'bootstrap-will_paginate'
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'

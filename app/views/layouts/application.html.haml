@@ -8,6 +8,10 @@
   %body#store
     .row
       .col-xs-12
+        %p.bg-info= notice
+        %p.bg-danger= alert
+    .row
+      .col-xs-12
         #banner
           = image_tag("logo.jpg", class: 'img-responsive')
           = @page_title || "Pragmatic Bookshelf"
