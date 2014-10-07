@@ -5,8 +5,8 @@
       %dd= @product.title
       %dt 描述
       %dd= @product.description
-      %dt 图片URL
-      %dd= @product.image
+      %dt 图片
+      %dd= image_tag(@product.image.url("large"))
       %dt 价格
       %dd= @product.price
 

@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'carrierwave/processing/mini_magick'
 # 在图片空间里面定义好的“缩略图版本名称”，以防止调用错误
-IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(20x20 30x30 240x240 100x100 120x90 160x120 250x187 320 640 800)
+IMAGE_UPLOADER_ALLOW_IMAGE_VERSION_NAMES = %(tiny small normal large 20x20 30x30 100x100 240x240)
 class ImageUploader < CarrierWave::Uploader::Base
   storage :upyun
 
