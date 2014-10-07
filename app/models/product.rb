@@ -1,11 +1,17 @@
+require 'carrierwave/mongoid'
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  attr_accessor :uploader_secure_token
   field :title, type: String
   field :description, type: String
-  field :image_url, type: String
+  # field :image_url, type: String
   field :price, type: BigDecimal
   
+  mount_uploader :image, ImageUploader
+  def uploader_secure_token
+
+  end
   #TODO 使用mongoid的scope
   # default_scope { order("title") }
 
@@ -30,10 +36,10 @@ class Product
 	validates :title, :description, :image_url, presence: true
 	validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 0.01 }
 	validates :title, uniqueness: true, length: { minimum: 1, maximum: 50 }
-	validates :image_url, format: {
-		with: VALIE_IMAGE_URL_REGEX,
-		message: 'must be a URL for GIF, JPG or PNG image.'
+	# validates :image_url, format: {
+	# 	with: VALIE_IMAGE_URL_REGEX,
+	# 	message: 'must be a URL for GIF, JPG or PNG image.'
 
-	}
+	# }
 
 end
