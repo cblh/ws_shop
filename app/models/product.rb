@@ -2,12 +2,16 @@ require 'carrierwave/mongoid'
 class Product
   include Mongoid::Document
   include Mongoid::Timestamps
+  attr_accessor :uploader_secure_token
   field :title, type: String
   field :description, type: String
   # field :image_url, type: String
   field :price, type: BigDecimal
   
   mount_uploader :image, ImageUploader
+  def uploader_secure_token
+
+  end
   #TODO 使用mongoid的scope
   # default_scope { order("title") }
 
