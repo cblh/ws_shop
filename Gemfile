@@ -11,6 +11,7 @@ gem 'devise'
 # 使用又拍云用于存储上传图片
 gem "carrierwave-upyun"
 gem "rest-client"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 
 group :development, :test do
   # A toy SMTP server will be running on port 1025 catching emails and displaing them on HTTP port 1080.

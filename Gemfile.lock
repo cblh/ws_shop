@@ -265,7 +265,6 @@ DEPENDENCIES
   bootstrap-will_paginate
   bson_ext
   capybara
-  carrierwave
   carrierwave-upyun
   coffee-rails (~> 4.0.0)
   devise
