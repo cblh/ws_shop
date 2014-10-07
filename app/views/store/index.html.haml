@@ -13,3 +13,5 @@
     .col-xs-6.col-md-3
       %span.price= number_to_currency(product.price)
       = button_to '加入购物车', line_items_path(product_id: product), remote: true, class: 'btn btn-primary'
+
+= will_paginate @products
