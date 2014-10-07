@@ -4,7 +4,7 @@ class Product
   include Mongoid::Timestamps
   field :title, type: String
   field :description, type: String
-  field :image_url, type: String
+  # field :image_url, type: String
   field :price, type: BigDecimal
   
   mount_uploader :image, ImageUploader
