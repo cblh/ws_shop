@@ -37,13 +37,13 @@ class User
 
   ## sms validate
   field :phone, :type => Integer
-  field :phone_val?, :type => Boolean, :default => false
+  field :phone_val, :type => Boolean, :default => false
   field :phone_code, :type => Integer
 
   VALIDATE_PHONE = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
   validate :phone, format: { with: VALIDATE_PHONE }, uniqueness: true
 
   def val_phone code
-    self.phone_val? = true if self.phone_code == code
+    self.phone_val = true if self.phone_code == code
   end
 end
