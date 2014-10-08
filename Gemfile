@@ -12,6 +12,8 @@ gem 'devise'
 gem "carrierwave-upyun"
 gem "rest-client"
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+# 验证短信
+gem 'china_sms'
 
 group :development, :test do
   # A toy SMTP server will be running on port 1025 catching emails and displaing them on HTTP port 1080.
