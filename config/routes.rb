@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  get 'user/edit_info'
+
+  post 'user/update_info'
+  post 'user/sent_code'
+  post 'user/valid_phone'
+
   devise_for :users
   resources :orders
 

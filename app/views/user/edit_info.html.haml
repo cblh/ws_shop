@@ -1,0 +1,8 @@
+
+%h1 Users#edit_info
+
+= form_for @user, url: user_sent_code_path, html: { class: 'form', method: 'POST' } do |f|
+  .form-group
+    %label 手机号码验证
+    = f.telephone_field :phone
+    = f.submit "发送验证码", remote: true
